@@ -1,0 +1,25 @@
+{
+  "name": "nakama-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "delivery": "0.0.3",
+    "express": "^4.10.6",
+    "formidable": "^1.0.16",
+    "fs": "^0.0.2",
+    "http": "0.0.0",
+    "mongoose": "^3.8.21",
+    "node-uuid": "^1.4.2",
+    "socket.io": "^1.2.1",
+    "socket.io-stream": "^0.6.0",
+    "stringify-object": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

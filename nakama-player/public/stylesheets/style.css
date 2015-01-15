@@ -1,0 +1,30 @@
+body {
+  margin: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+.folder {
+  background-color: #009900;
+  color: #ddffdd;
+}
+.items-bar {
+  width: 230px;
+  padding: 0px;
+}
+.items-bar li {
+  list-style-type: none;
+}
+.items-bar li p {
+  white-space: nowrap;
+  padding: 10px 10px;
+  margin: 0px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+

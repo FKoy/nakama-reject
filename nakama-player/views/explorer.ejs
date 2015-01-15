@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>nakama-player</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/javascripts/local.js"></script>
+    <script src="//vjs.zencdn.net/4.11/video.js"></script>
+    <link href="//vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
+</head>
+
+<body>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<ul class="items-bar left">
+    <li data-path="<%= homePath %>" class="folder"><p>..</p></li>
+    <% localFiles.forEach(function (file) { %>
+        <li data-path="<%= file.path %>" class="<%= file.type %>">
+            <p><%= file.name %></p>
+        </li>
+    <% }); %>
+    <li class="add"><button type="button">add</button></li>
+</ul>
+
+<ul class="items-bar right">
+
+    <% if (cloudFiles !== undefined) { %>
+
+        <script>
+            var cloudFiles = JSON.parse('<%- JSON.stringify(cloudFiles) %>');
+        </script>
+        <script src="/javascripts/cloud.js"></script>
+
+    <% } else { %>
+
+    <div class="user-form">
+    <script>
+
+        $(function () {
+
+            var signup = (function () { /*
+             <p>Signup</p>
+             <form method="post" action="/user/signup">
+             <p><input type="text" name="name" value="" placeholder="Username or Email"></p>
+             <p><input type="password" name="password" value="" placeholder="Password"></p>
+             <p><input type="password" name="confirm" value="" placeholder="Confirm"></p>
+
+             <p class="submit"><input type="submit" name="commit" value="Signup"></p>
+             </form>
+             <div class="signup-help">
+             <p>Already have an account, please login in <a class="login">here</a></p>
+             </div>
+             */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+
+            var login = (function () {/*
+             <p>Loginしてください</p>
+             <form method="post" action="/user/login">
+             <p><input type="text" name="name" value="" placeholder="Username"></p>
+             <p><input type="password" name="password" value="" placeholder="Password"></p>
+
+             <p class="submit"><input type="submit" name="commit" value="Login"></p>
+             </form>
+             <div class="login-help">
+             <p>Forgot your password? <a>Click here to reset it</a>.</p>
+             <p>please you signup in <a class="signup">here</a>, if you don't signup.</p>
+             </div>
+             */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+
+            setLoginForm();
+
+            function setLoginForm() {
+                $('.user-form').html(login);
+                $('.signup').on('click', function() {
+                    setSignupForm();
+                });
+            }
+
+            function setSignupForm() {
+                $('.user-form').html(signup);
+                $('.login').on('click', function() {
+                    setLoginForm();
+                });
+            }
+        });
+
+
+    </script>
+    </div>
+
+    <% } %>
+
+</ul>
+
+<div class="container"></div>
+
+</body>
+</html>
